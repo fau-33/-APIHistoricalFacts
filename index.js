@@ -2,14 +2,15 @@ const express = require('express');
 const app = express();
 const { servicoBuscarFatoPorAno } = require('./servico');
 const { fatosHistoricos } = require('./fatos');
+const path = require('path');
 
-// 1. Rota raiz - SERVIR O FRONTEND PRIMEIRO
+// 1. Arquivos estáticos (CSS, JS, Imagens)
+app.use(express.static(path.join(__dirname, 'public')));
+
+// 2. Rota raiz - SERVIR O FRONTEND
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/index.html');
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
-
-// 2. Arquivos estáticos (CSS, JS, Imagens)
-app.use(express.static('public'));
 
 // 3. API - Buscar fato por ano
 app.get('/api/fato', (req, res) => {
@@ -28,12 +29,10 @@ app.get('/api/fatos', (req, res) => {
   res.json(fatosHistoricos);
 });
 
-// Para rodar localmente
-if (process.env.NODE_ENV !== 'production') {
-  const PORT = 8080;
-  app.listen(PORT, () => {
-    console.log(`Server started on port ${PORT}`);
-  });
-}
+// Porta para rodar localmente ou na Vercel
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`);
+});
 
 module.exports = app;
