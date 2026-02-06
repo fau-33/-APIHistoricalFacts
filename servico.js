@@ -7,4 +7,12 @@ function servicoBuscarFatoPorAno(ano) {
 
 }
 
+function servicoValidaAno(ano) {
+  if (ano < 1900 || ano > 2024) {
+    return false;
+  }
+  return true;
+}
+
 exports.servicoBuscarFatoPorAno = servicoBuscarFatoPorAno;
+exports.servicoValidaAno = servicoValidaAno;

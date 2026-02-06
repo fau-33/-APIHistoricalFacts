@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatos Históricos | 1920-2022</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-gradient"></div>
+    
+    <header class="header">
+        <div class="container">
+            <h1 class="title">
+                <span class="title-icon">📜</span>
+                Fatos Históricos
+                <span class="title-year">1920-2022</span>
+            </h1>
+            <p class="subtitle">Explore os momentos que marcaram a história</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <!-- Seletor de Ano -->
+            <div class="year-selector-container">
+                <label for="yearSelect" class="year-label">Selecione um ano:</label>
+                <div class="select-wrapper">
+                    <select id="yearSelect" class="year-select">
+                        <option value="">Escolha um ano...</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Loading State -->
+            <div id="loadingState" class="loading-state hidden">
+                <div class="spinner"></div>
+                <p>Carregando fato histórico...</p>
+            </div>
+
+            <!-- Error State -->
+            <div id="errorState" class="error-state hidden">
+                <div class="error-icon">⚠️</div>
+                <h3>Ops! Algo deu errado</h3>
+                <p id="errorMessage"></p>
+            </div>
+
+            <!-- Fact Card -->
+            <div id="factCard" class="fact-card hidden">
+                <div class="fact-image-container">
+                    <img id="factImage" src="" alt="Imagem do fato histórico" class="fact-image">
+                    <div class="image-overlay"></div>
+                </div>
+                
+                <div class="fact-content">
+                    <div class="fact-year-badge">
+                        <span id="factYear" class="fact-year"></span>
+                    </div>
+                    
+                    <h2 id="factDescription" class="fact-description"></h2>
+                    
+                    <div class="navigation-buttons">
+                        <button id="prevBtn" class="nav-btn prev-btn">
+                            <span class="btn-icon">←</span>
+                            <span class="btn-text">Anterior</span>
+                        </button>
+                        <button id="nextBtn" class="nav-btn next-btn">
+                            <span class="btn-text">Próximo</span>
+                            <span class="btn-icon">→</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline Info -->
+            <div class="timeline-info">
+                <p>💡 Use os botões de navegação ou selecione um ano específico para explorar a história</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Desenvolvido com 💙 | API de Fatos Históricos</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
