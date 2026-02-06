@@ -23,6 +23,11 @@ app.get('/api/fatos', (req, res) => {
   res.json(fatosHistoricos);
 });
 
+// Garante que a raiz sirva o index.html
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/public/index.html');
+});
+
 app.listen(8080, () => {
   console.log('Server started on port 8080');
 });
